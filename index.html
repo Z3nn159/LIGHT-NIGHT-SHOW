@@ -3,75 +3,1117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="LIGHT NIGHT SHOW – persönliche futuristische Show-Website">
 <title>LIGHT NIGHT SHOW</title>
+
 <style>
-:root{--bg:#05060b;--panel:#0b0e18;--text:#f5f7ff;--muted:#9ba3b8;--cyan:#45eaff;--pink:#ff4fd8;--line:#1b2235}
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 50% -10%,#182047 0,#05060b 45%);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:70px 70px;mask-image:linear-gradient(to bottom,black,transparent 70%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1150px;margin:auto;padding:0 24px}
-nav{position:fixed;z-index:20;top:18px;left:50%;transform:translateX(-50%);width:min(92%,1000px);padding:12px 18px;border:1px solid #26304a;background:#080b13cc;backdrop-filter:blur(18px);border-radius:18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 0 40px #0008}
-.logo{font-weight:900;letter-spacing:3px}.logo span{color:var(--cyan)}.links{display:flex;gap:22px;color:#c7cede;font-size:14px}.links a:hover{color:var(--cyan)}
-.hero{min-height:100vh;display:grid;place-items:center;text-align:center;position:relative;padding-top:80px}
-.orb{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,#45eaff33,transparent 65%);filter:blur(10px);animation:pulse 4s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.18);opacity:.65}}
-.kicker{color:var(--cyan);letter-spacing:5px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(52px,11vw,125px);line-height:.86;margin:22px 0;background:linear-gradient(90deg,#fff,#8eefff,#ff7be4,#fff);background-size:250%;-webkit-background-clip:text;color:transparent;animation:shine 6s linear infinite}
-@keyframes shine{to{background-position:250%}}
-.hero p{max-width:650px;margin:0 auto 30px;color:var(--muted);font-size:18px;line-height:1.7}
-.btn{display:inline-flex;gap:10px;align-items:center;padding:13px 19px;border-radius:12px;border:1px solid #33405e;background:#101626;color:#fff;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 0 24px #45eaff22}.primary{background:linear-gradient(100deg,#18cfe5,#c946ff);border:0}
-section{padding:100px 0}.section-title{font-size:38px;margin:0 0 12px}.section-sub{color:var(--muted);margin:0 0 35px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#0d1220,#080a11);border:1px solid var(--line);border-radius:20px;padding:25px;transition:.25s}.card:hover{transform:translateY(-6px);border-color:#36425f;box-shadow:0 18px 50px #0008}.icon{font-size:30px}.card h3{margin:15px 0 8px}.card p{color:var(--muted);line-height:1.6}
-.show{display:flex;justify-content:space-between;align-items:center;gap:20px}.date{color:var(--cyan);font-weight:800;letter-spacing:1px}.showlist{display:grid;gap:12px}.showlist .card{padding:20px 24px}
-.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:190px;gap:12px}.tile{border-radius:18px;overflow:hidden;position:relative;border:1px solid #202941;background:linear-gradient(135deg,#12233a,#3b123b)}.tile:after{content:"";position:absolute;inset:-50%;background:linear-gradient(110deg,transparent 35%,#fff3 50%,transparent 65%);transform:rotate(20deg);animation:beam 5s linear infinite}.tile.big{grid-row:span 2;background:radial-gradient(circle at 30% 30%,#45eaff88,transparent 30%),linear-gradient(135deg,#071c2c,#300a2d)}.tile:nth-child(2){background:radial-gradient(circle at 70% 30%,#ff4fd877,transparent 30%),#10132a}.tile:nth-child(3){background:radial-gradient(circle at 30% 70%,#8f5cff88,transparent 30%),#0b1722}.tile:nth-child(4){background:radial-gradient(circle at 70% 60%,#45eaff66,transparent 30%),#151021}
-@keyframes beam{to{transform:translateX(80%) rotate(20deg)}}
-form{max-width:650px;display:grid;gap:12px}.field{width:100%;padding:15px 16px;border-radius:12px;border:1px solid #273149;background:#090d17;color:#fff;font:inherit}.field:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px #45eaff18}
-footer{border-top:1px solid var(--line);padding:35px 0;color:var(--muted);font-size:14px}.status{margin-top:15px;color:var(--cyan);min-height:22px}
-#top{position:fixed;right:22px;bottom:22px;z-index:10;display:none}
-@media(max-width:760px){.links{display:none}.grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.tile.big{grid-column:span 2;grid-row:span 1}.show{align-items:flex-start;flex-direction:column}.hero h1{font-size:58px}}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#05060a;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    padding:18px 5%;
+    background:#05060ae8;
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #ffffff15;
+}
+
+.logo{
+    color:white;
+    text-decoration:none;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.logo span{
+    color:#00eaff;
+}
+
+.hoster{
+    margin-left:auto;
+    margin-right:25px;
+    color:#ff3030;
+    font-weight:900;
+}
+
+.links{
+    display:flex;
+    gap:20px;
+}
+
+.links a{
+    color:#ddd;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:13px;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 60px;
+    background:
+    radial-gradient(circle at center,#14283d 0%,#05060a 60%);
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.eyebrow{
+    color:#00eaff;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:clamp(50px,10vw,110px);
+    margin:20px 0;
+    line-height:.9;
+    text-shadow:0 0 35px #00eaff55;
+}
+
+.hero p{
+    color:#aab3c7;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 20px;
+    margin:5px;
+    border:1px solid #00eaff;
+    border-radius:10px;
+    background:#07131a;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.btn:hover{
+    box-shadow:0 0 20px #00eaff55;
+}
+
+.pink{
+    border-color:#ff2bd6;
+}
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+section h2{
+    font-size:40px;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#0d1019;
+    border:1px solid #252c40;
+    border-radius:18px;
+    padding:22px;
+}
+
+.card small{
+    color:#00eaff;
+    font-weight:bold;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.card p{
+    color:#9aa4bd;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.gallery-item{
+    min-height:220px;
+    border-radius:15px;
+    border:1px solid #252c40;
+    background:#101522;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:end;
+    overflow:hidden;
+}
+
+.gallery-item span{
+    width:100%;
+    padding:12px;
+    background:#000b;
+}
+
+.contact-info{
+    padding:20px;
+    margin-bottom:20px;
+    border:1px solid #252c40;
+    border-radius:15px;
+    background:#0d1019;
+    color:#b5bed2;
+    line-height:2;
+}
+
+form{
+    max-width:700px;
+    display:grid;
+    gap:12px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #252c40;
+    background:#080b12;
+    color:white;
+    font-size:16px;
+}
+
+textarea{
+    min-height:130px;
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#7f899f;
+    border-top:1px solid #ffffff10;
+}
+
+/* BEARBEITUNGSBEREICH */
+
+.edit-button{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:200;
+}
+
+.editor{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:#020308f5;
+    overflow:auto;
+    padding:70px 20px;
+}
+
+.editor.open{
+    display:block;
+}
+
+.editor-box{
+    max-width:900px;
+    margin:auto;
+    background:#0b0f18;
+    border:1px solid #293451;
+    border-radius:20px;
+    padding:25px;
+}
+
+.editor-box h2{
+    margin-bottom:10px;
+}
+
+.editor-box p{
+    color:#9aa4bd;
+    margin-bottom:25px;
+}
+
+.editor-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.editor label{
+    display:block;
+    color:#cbd2e5;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.editor input,
+.editor textarea{
+    margin-top:7px;
+}
+
+.editor-list{
+    display:grid;
+    gap:10px;
+    margin:15px 0 25px;
+}
+
+.editor-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    background:#080b12;
+    border:1px solid #252c40;
+    border-radius:10px;
+}
+
+@media(max-width:800px){
+
+    .links{
+        display:none;
+    }
+
+    .cards,
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .editor-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hoster{
+        font-size:12px;
+        margin-right:0;
+    }
+}
 </style>
 </head>
+
 <body>
-<nav><a class="logo" href="#home">LIGHT <span>NIGHT</span> SHOW</a><div class="links"><a href="#show">SHOW</a><a href="#about">ÜBER MICH</a><a href="#gallery">GALERIE</a><a href="#contact">KONTAKT</a></div></nav>
 
-<main>
-<section class="hero" id="home"><div class="orb"></div><div class="wrap">
-<div class="kicker">WELCOME TO THE NIGHT</div>
-<h1>LIGHT<br>NIGHT SHOW</h1>
-<p>Eine persönliche Show-Welt aus Licht, Sound, Energie und futuristischen Momenten. Willkommen hinter den Kulissen.</p>
-<a class="btn primary" href="#show">Nächste Shows →</a>
-<a class="btn" href="#contact">Kontakt</a>
-</div></section>
+<nav>
 
-<section id="show"><div class="wrap">
-<h2 class="section-title">Nächste Shows</h2><p class="section-sub">Termine und besondere Night-Events.</p>
-<div class="showlist">
-<div class="card show"><div><div class="date">18. OKTOBER 2026</div><h3>NEON AFTER DARK</h3><p>Eine immersive Nacht voller Licht und elektronischer Sounds.</p></div><button class="btn" onclick="reserve('NEON AFTER DARK')">Interesse</button></div>
-<div class="card show"><div><div class="date">31. OKTOBER 2026</div><h3>HALLOWEEN LIGHT SESSION</h3><p>Special Edition mit düsterem Neon-Look und Überraschungen.</p></div><button class="btn" onclick="reserve('HALLOWEEN LIGHT SESSION')">Interesse</button></div>
-<div class="card show"><div><div class="date">21. NOVEMBER 2026</div><h3>FUTURE NIGHT</h3><p>Die große futuristische Light-Show.</p></div><button class="btn" onclick="reserve('FUTURE NIGHT')">Interesse</button></div>
-</div></div></section>
+<a class="logo" href="#home">
+LIGHT <span>NIGHT</span> SHOW
+</a>
 
-<section id="about"><div class="wrap"><h2 class="section-title">Die Show</h2><p class="section-sub">Mehr als Licht – eine eigene Atmosphäre.</p>
-<div class="grid">
-<div class="card"><div class="icon">✦</div><h3>LIGHT</h3><p>Neon, Laser-Feeling und dynamische Lichtstimmungen für eine futuristische Atmosphäre.</p></div>
-<div class="card"><div class="icon">♫</div><h3>SOUND</h3><p>Musik und Energie werden zu einem gemeinsamen Erlebnis verbunden.</p></div>
-<div class="card"><div class="icon">◈</div><h3>VIBE</h3><p>Eine persönliche Show mit eigener Identität – dunkel, modern und unvergesslich.</p></div>
-</div></div></section>
+<div class="hoster">
+Hoster z3nn
+</div>
 
-<section id="gallery"><div class="wrap"><h2 class="section-title">Night Gallery</h2><p class="section-sub">Visuelle Eindrücke der LIGHT NIGHT SHOW.</p>
-<div class="gallery"><div class="tile big"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div></div></section>
+<div class="links">
+<a href="#show">SHOW</a>
+<a href="#about">ÜBER MICH</a>
+<a href="#gallery">GALERIE</a>
+<a href="#contact">KONTAKT</a>
+</div>
 
-<section id="contact"><div class="wrap"><h2 class="section-title">Kontakt</h2><p class="section-sub">Schreib mir eine Nachricht.</p>
-<form id="contactForm"><input class="field" required placeholder="Dein Name"><input class="field" required type="email" placeholder="E-Mail-Adresse"><textarea class="field" required rows="6" placeholder="Deine Nachricht"></textarea><button class="btn primary" type="submit">Nachricht senden ✦</button><div class="status" id="status"></div></form></div></section>
-</main>
-<footer><div class="wrap">© 2026 LIGHT NIGHT SHOW · Built for the night.</div></footer>
-<button id="top" class="btn" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+</nav>
+
+
+<header class="hero" id="home">
+
+<div class="hero-content">
+
+<div class="eyebrow" id="greeting">
+WELCOME TO THE NIGHT
+</div>
+
+<h1 id="headline">
+LIGHT NIGHT SHOW
+</h1>
+
+<p id="description">
+Eine immersive Nacht voller Licht und elektronischen Sounds.
+</p>
+
+<div class="buttons">
+
+<a class="btn" href="#show">
+TERMINE
+</a>
+
+<a class="btn pink" href="#contact">
+KONTAKT
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section id="show">
+
+<h2>SHOWS</h2>
+
+<div class="cards" id="eventsContainer">
+</div>
+
+</section>
+
+
+<section id="about">
+
+<h2>ÜBER MICH</h2>
+
+<div class="about-grid">
+
+<div class="card">
+<h3>LIGHT</h3>
+<p>
+Futuristische Lichtstimmungen und Neon-Effekte.
+</p>
+</div>
+
+<div class="card">
+<h3>SOUND</h3>
+<p>
+Elektronische Sounds passend zur Atmosphäre.
+</p>
+</div>
+
+<div class="card">
+<h3>VIBE</h3>
+<p>
+Eine Show, die im Gedächtnis bleibt.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="gallery">
+
+<h2>GALERIE</h2>
+
+<div class="gallery" id="galleryContainer">
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>KONTAKT</h2>
+
+<div class="contact-info" id="contactInfo">
+</div>
+
+<form id="contactForm">
+
+<input
+type="text"
+placeholder="Dein Name"
+required
+>
+
+<input
+type="email"
+placeholder="E-Mail"
+required
+>
+
+<textarea
+placeholder="Deine Nachricht"
+required
+></textarea>
+
+<button class="btn" type="submit">
+NACHRICHT SENDEN
+</button>
+
+</form>
+
+</section>
+
+
+<footer>
+
+© 2026 LIGHT NIGHT SHOW · Built for the night.
+
+</footer>
+
+
+<button
+class="btn edit-button"
+onclick="openEditor()"
+>
+✎ Bearbeiten
+</button>
+
+
+<!-- BEARBEITUNGSFENSTER -->
+
+<div class="editor" id="editor">
+
+<div class="editor-box">
+
+<h2>Website bearbeiten</h2>
+
+<p>
+Hier kannst du deine Termine, Texte, Orte, Telefonnummer und Bilder ändern.
+</p>
+
+
+<h3>Texte und Kontakt</h3>
+
+<div class="editor-grid">
+
+<label>
+Begrüßung
+<input id="editGreeting">
+</label>
+
+<label>
+Hauptüberschrift
+<input id="editHeadline">
+</label>
+
+<label>
+Beschreibung
+<input id="editDescription">
+</label>
+
+<label>
+Telefon / Nummer
+<input id="editPhone">
+</label>
+
+<label>
+Ort
+<input id="editLocation">
+</label>
+
+<label>
+E-Mail
+<input id="editEmail">
+</label>
+
+</div>
+
+
+<h3>Termin hinzufügen</h3>
+
+<div class="editor-grid">
+
+<label>
+Datum
+<input
+id="eventDate"
+placeholder="18. OKTOBER 2026"
+>
+</label>
+
+<label>
+Titel
+<input
+id="eventTitle"
+placeholder="NEON AFTER DARK"
+>
+</label>
+
+<label>
+Ort
+<input
+id="eventPlace"
+placeholder="Neuss"
+>
+</label>
+
+<label>
+Beschreibung
+<input
+id="eventText"
+placeholder="Beschreibung"
+>
+</label>
+
+</div>
+
+<button class="btn" onclick="addEvent()">
++ Termin hinzufügen
+</button>
+
+
+<div class="editor-list" id="eventEditorList">
+</div>
+
+
+<h3>Bilder hinzufügen</h3>
+
+<div class="editor-grid">
+
+<label>
+Bild auswählen
+<input
+type="file"
+id="imageFile"
+accept="image/*"
+>
+</label>
+
+<label>
+Bildtitel
+<input
+id="imageTitle"
+placeholder="Meine Light Show"
+>
+</label>
+
+</div>
+
+<button class="btn" onclick="addImage()">
++ Bild hinzufügen
+</button>
+
+
+<div class="editor-list" id="imageEditorList">
+</div>
+
+
+<div style="margin-top:25px">
+
+<button class="btn" onclick="saveSettings()">
+💾 Speichern
+</button>
+
+<button class="btn" onclick="resetWebsite()">
+Zurücksetzen
+</button>
+
+<button class="btn" onclick="closeEditor()">
+Schließen
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 
 <script>
-const topBtn=document.getElementById('top');
-addEventListener('scroll',()=>topBtn.style.display=scrollY>500?'block':'none');
-function reserve(name){alert('Danke! Dein Interesse an „'+name+'“ wurde vorgemerkt. In einer echten Version kann hier ein Ticket-/Reservierungssystem angeschlossen werden.');}
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('status').textContent='✓ Nachricht vorbereitet – das Formular ist bereit für einen echten Mailversand.';e.target.reset();});
+
+const standardDaten = {
+
+greeting:
+"WELCOME TO THE NIGHT",
+
+headline:
+"LIGHT NIGHT SHOW",
+
+description:
+"Eine immersive Nacht voller Licht und elektronischen Sounds.",
+
+phone:
+"",
+
+location:
+"",
+
+email:
+"",
+
+events:[
+
+{
+date:"18. OKTOBER 2026",
+title:"NEON AFTER DARK",
+place:"",
+text:"Eine immersive Nacht voller Licht und elektronischen Sounds."
+},
+
+{
+date:"31. OKTOBER 2026",
+title:"HALLOWEEN LIGHT SESSION",
+place:"",
+text:"Special Edition mit düsterem Neon-Look und Überraschungen."
+},
+
+{
+date:"21. NOVEMBER 2026",
+title:"FUTURE NIGHT",
+place:"",
+text:"Die große futuristische Light-Show."
+}
+
+],
+
+images:[]
+
+};
+
+
+let daten =
+JSON.parse(
+localStorage.getItem("lightNightShow")
+) || standardDaten;
+
+
+function speichern(){
+
+localStorage.setItem(
+"lightNightShow",
+JSON.stringify(daten)
+);
+
+}
+
+
+function anzeigen(){
+
+document.getElementById("greeting").textContent =
+daten.greeting;
+
+document.getElementById("headline").textContent =
+daten.headline;
+
+document.getElementById("description").textContent =
+daten.description;
+
+
+const events =
+document.getElementById("eventsContainer");
+
+events.innerHTML = "";
+
+
+daten.events.forEach((event,index)=>{
+
+events.innerHTML += `
+
+<article class="card">
+
+<small>
+${event.date}
+</small>
+
+<h3>
+${event.title}
+</h3>
+
+<p>
+${event.text}
+</p>
+
+${event.place
+? `<p>📍 ${event.place}</p>`
+: ""}
+
+<button
+class="btn"
+onclick="reservieren('${event.title}')"
+>
+RESERVIEREN
+</button>
+
+</article>
+
+`;
+
+});
+
+
+const gallery =
+document.getElementById("galleryContainer");
+
+gallery.innerHTML = "";
+
+
+daten.images.forEach(image=>{
+
+gallery.innerHTML += `
+
+<div
+class="gallery-item"
+style="background-image:url('${image.src}')"
+>
+
+<span>
+${image.title}
+</span>
+
+</div>
+
+`;
+
+});
+
+
+const contact =
+document.getElementById("contactInfo");
+
+
+let info = "";
+
+if(daten.phone)
+info += "📞 " + daten.phone + "<br>";
+
+if(daten.location)
+info += "📍 " + daten.location + "<br>";
+
+if(daten.email)
+info += "✉️ " + daten.email;
+
+
+if(!info)
+info =
+"Kontaktinformationen können über „Bearbeiten“ eingetragen werden.";
+
+
+contact.innerHTML = info;
+
+
+editorListen();
+
+}
+
+
+function openEditor(){
+
+document.getElementById("editor")
+.classList.add("open");
+
+
+document.getElementById("editGreeting").value =
+daten.greeting;
+
+document.getElementById("editHeadline").value =
+daten.headline;
+
+document.getElementById("editDescription").value =
+daten.description;
+
+document.getElementById("editPhone").value =
+daten.phone;
+
+document.getElementById("editLocation").value =
+daten.location;
+
+document.getElementById("editEmail").value =
+daten.email;
+
+}
+
+
+function closeEditor(){
+
+document.getElementById("editor")
+.classList.remove("open");
+
+}
+
+
+function saveSettings(){
+
+daten.greeting =
+document.getElementById("editGreeting").value;
+
+daten.headline =
+document.getElementById("editHeadline").value;
+
+daten.description =
+document.getElementById("editDescription").value;
+
+daten.phone =
+document.getElementById("editPhone").value;
+
+daten.location =
+document.getElementById("editLocation").value;
+
+daten.email =
+document.getElementById("editEmail").value;
+
+
+speichern();
+
+anzeigen();
+
+alert("Die Änderungen wurden gespeichert.");
+
+}
+
+
+function addEvent(){
+
+const event = {
+
+date:
+document.getElementById("eventDate").value,
+
+title:
+document.getElementById("eventTitle").value,
+
+place:
+document.getElementById("eventPlace").value,
+
+text:
+document.getElementById("eventText").value
+
+};
+
+
+if(!event.title){
+
+alert("Bitte einen Titel eingeben.");
+
+return;
+
+}
+
+
+daten.events.push(event);
+
+speichern();
+
+anzeigen();
+
+
+document.getElementById("eventDate").value="";
+document.getElementById("eventTitle").value="";
+document.getElementById("eventPlace").value="";
+document.getElementById("eventText").value="";
+
+}
+
+
+function deleteEvent(index){
+
+daten.events.splice(index,1);
+
+speichern();
+
+anzeigen();
+
+}
+
+
+function addImage(){
+
+const file =
+document.getElementById("imageFile").files[0];
+
+
+if(!file){
+
+alert("Bitte zuerst ein Bild auswählen.");
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload = function(){
+
+daten.images.push({
+
+src:reader.result,
+
+title:
+document.getElementById("imageTitle").value
+|| file.name
+
+});
+
+
+speichern();
+
+anzeigen();
+
+
+document.getElementById("imageFile").value="";
+
+document.getElementById("imageTitle").value="";
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
+
+function deleteImage(index){
+
+daten.images.splice(index,1);
+
+speichern();
+
+anzeigen();
+
+}
+
+
+function editorListen(){
+
+const eventList =
+document.getElementById("eventEditorList");
+
+eventList.innerHTML="";
+
+
+daten.events.forEach((event,index)=>{
+
+eventList.innerHTML += `
+
+<div class="editor-item">
+
+<span>
+${event.date} · <b>${event.title}</b>
+</span>
+
+<button
+class="btn"
+onclick="deleteEvent(${index})"
+>
+Löschen
+</button>
+
+</div>
+
+`;
+
+});
+
+
+const imageList =
+document.getElementById("imageEditorList");
+
+imageList.innerHTML="";
+
+
+daten.images.forEach((image,index)=>{
+
+imageList.innerHTML += `
+
+<div class="editor-item">
+
+<span>
+${image.title}
+</span>
+
+<button
+class="btn"
+onclick="deleteImage(${index})"
+>
+Löschen
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function resetWebsite(){
+
+if(
+confirm(
+"Möchtest du wirklich alle Änderungen zurücksetzen?"
+)
+){
+
+daten =
+JSON.parse(
+JSON.stringify(standardDaten)
+);
+
+speichern();
+
+anzeigen();
+
+}
+
+}
+
+
+function reservieren(name){
+
+alert(
+"Reservierung für „"
++ name
++ "“"
+);
+
+}
+
+
+document
+.getElementById("contactForm")
+.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+alert(
+"Vielen Dank für deine Nachricht!"
+);
+
+}
+);
+
+
+anzeigen();
+
 </script>
+
 </body>
-</html> 
+</html>
